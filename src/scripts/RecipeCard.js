@@ -7,6 +7,7 @@ export class RecipeCard extends Component {
 
   handleClick() {
     this.props.setActive(this.props.recipe)
+    this.props.openRecipe()
   }
   
   render() {

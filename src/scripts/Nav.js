@@ -8,7 +8,7 @@ export class Nav extends Component {
   render() {
     return (
       <div className="nav">
-        <span className="logo">Cooking App</span>
+        <span className="logo">{this.props.activeRecipeTitle === ''? "test" : 'Cooking App'}</span>
       </div>
     )
   }

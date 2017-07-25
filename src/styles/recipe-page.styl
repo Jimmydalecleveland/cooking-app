@@ -1,0 +1,33 @@
+.recipe-page
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  min-height: 100%
+  padding: 1rem 0
+  background-color: #fff
+  color: #4f386f
+  transition: transform 0.4s
+  transform: translateX(100%)
+
+  &.active
+    transform: translateX(0)
+
+  h3
+    text-align: center
+    margin: 0 0 0.3em
+  
+  h4
+    text-align: center
+    margin: 0
+    font-weight: 500
+
+  .back-button
+    position: absolute
+    left: 1rem
+    top: 0.5rem
+    font-size: 20px
+    cursor: pointer
+
+  &__ingredient
+    display: block

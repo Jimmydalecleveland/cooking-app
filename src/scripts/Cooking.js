@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Nav } from './Nav'
 import { RecipeCard } from './RecipeCard'
+import { RecipePage } from './RecipePage'
 
 export class Cooking extends Component {
   constructor(props) {
@@ -17,6 +18,14 @@ export class Cooking extends Component {
           cookTime: 120,
           instructions: "Boil'em, Mash'em, Stick'em in a stew.",
           ingredients: ['Milk', 'Chicken', 'Eggs', 'Mews']
+        },
+        {
+          id: 2,
+          title: "Mew kabobs",
+          prepTime: 47,
+          cookTime: 25,
+          instructions: "Put those mews on some sticks and sizzle their timbers",
+          ingredients: ['Mews', 'Peppeps', 'Salt', 'Pepper']
         }
       ],
       activeRecipe: ''
@@ -24,11 +33,17 @@ export class Cooking extends Component {
   }
 
   setActiveRecipe(recipe) {
-    console.log("setActiveRecipe fired")
     this.setState({
       activeRecipe: recipe
     })
+  }
 
+  openRecipe() {
+    document.querySelector('.recipe-page').classList.add('active')
+  }
+
+  closeRecipe() {
+    document.querySelector('.recipe-page').classList.remove('active')
   }
 
   craftTime(recipe) {
@@ -42,10 +57,12 @@ export class Cooking extends Component {
   }
   
   render() {
-    const { recipes } = this.state
+    const { recipes, activeRecipe } = this.state
+
     return (
       <div className="app-wrapper">
-        <Nav />
+        <Nav activeRecipeTitle={activeRecipe.title} />
+
         {
           recipes.map( recipe => {
             return <RecipeCard key={ recipe.id }
@@ -54,17 +71,22 @@ export class Cooking extends Component {
                                prepTime={ recipe.prepTime }
                                cookTime={ recipe.cookTime }
                                ingredients={ recipe.ingredients }
-                               setActive={ this.setActiveRecipe }
                                craftTime={ this.craftTime(recipe) }
+                               setActive={ this.setActiveRecipe }
+                               openRecipe={ this.openRecipe }
             /> 
           })
         }
 
-        <div className="recipe-window">
-          <h1>{ this.state.activeRecipe.title }</h1>
-          <p>{ this.state.activeRecipe.instructions }</p>
-        </div>
+        <RecipePage title={ activeRecipe.title }
+                    instructions={ activeRecipe.instructions }
+                    prepTime={ activeRecipe.prepTime }
+                    cookTime={ activeRecipe.cookTime }
+                    ingredients={ activeRecipe.ingredients }
+                    craftTime={ this.craftTime(activeRecipe) }
+                    closeRecipe={ this.closeRecipe }
+        />
       </div>
     )
   }
-}
+}  
