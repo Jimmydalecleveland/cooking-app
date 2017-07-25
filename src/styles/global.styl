@@ -1,0 +1,41 @@
+html
+  box-sizing: border-box
+
+*, *::before, *::after
+  box-sizing: inherit
+
+html,
+body
+  padding: 0;
+
+body
+  margin: 0
+  font-family: 'Quicksand', sans-serif
+
+// h1,
+// h2,
+// h3 {
+//   font-family: 'Libre Baskerville', serif
+// }
+
+button,
+.button
+  background-color: #FBDA61
+  background-image: primary-gradient
+  color: #fff
+  font-weight: 500
+  font-size: 18px
+  border-radius: 6px
+  border: none
+  padding: 0.4em 1.2em 0.5em
+  line-height: 1
+  cursor: pointer
+  transition: background 0.3s
+
+  &:hover
+    background-color: #ff951e
+    background-image: linear-gradient(60deg, #ff951e 0%, #ffe171 100%)
+
+.content-wrapper
+  width: 90%
+  margin: 0 auto

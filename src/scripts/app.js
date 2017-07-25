@@ -1,18 +1,8 @@
-require('./click-function.js');
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-const App = () => {
-  return (
-    <div>
-      <h1>Testing App</h1>
-      <p>paragraph</p>
-    </div>
-  )
-}
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Cooking } from './Cooking'
 
 ReactDOM.render(
-  <App />,
+  <Cooking />,
   document.getElementById('root')
 );

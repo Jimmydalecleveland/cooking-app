@@ -12,7 +12,7 @@ const cssProd = ExtractTextPlugin.extract({
 const cssConfig = isProd ? cssProd : cssDev;
 
 module.exports = {
-  entry: ['./src/scripts/app.js', './src/styles/main.styl'],
+  entry: ['./src/scripts/App.js', './src/styles/main.styl'],
 
   output: {
     path: path.resolve(__dirname, 'dist'),
