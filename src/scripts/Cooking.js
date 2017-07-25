@@ -30,6 +30,16 @@ export class Cooking extends Component {
     })
 
   }
+
+  craftTime(recipe) {
+    const { prepTime, cookTime } = recipe
+
+    const hours = Math.floor( (prepTime + cookTime) / 60 )
+    const minutesLeft = (prepTime + cookTime) % 60
+    const message = `${hours} hours ${minutesLeft} minutes`
+
+    return message
+  }
   
   render() {
     const { recipes } = this.state
@@ -45,11 +55,15 @@ export class Cooking extends Component {
                                cookTime={ recipe.cookTime }
                                ingredients={ recipe.ingredients }
                                setActive={ this.setActiveRecipe }
+                               craftTime={ this.craftTime(recipe) }
             /> 
           })
         }
 
-        { this.state.activeRecipe.title }
+        <div className="recipe-window">
+          <h1>{ this.state.activeRecipe.title }</h1>
+          <p>{ this.state.activeRecipe.instructions }</p>
+        </div>
       </div>
     )
   }
