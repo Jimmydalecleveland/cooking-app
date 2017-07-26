@@ -35,11 +35,15 @@ export class Cooking extends Component {
   setActiveRecipe(recipe) {
     this.setState({
       activeRecipe: recipe
+    }, () => {
+      const recipeId = this.state.activeRecipe.id
+      this.context.router.history.push(`/recipe/${recipeId}`)
     })
   }
 
   openRecipe() {
-    document.querySelector('.recipe-page').classList.add('active')
+    // document.querySelector('.recipe-page').classList.add('active')
+    
   }
 
   closeRecipe() {
@@ -89,4 +93,8 @@ export class Cooking extends Component {
       </div>
     )
   }
-}  
+}
+
+Cooking.contextTypes = {
+  router: React.PropTypes.object
+}
