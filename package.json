@@ -32,6 +32,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "react-addons-css-transition-group": "^15.6.0",
     "react-router-dom": "^4.1.2"
   }
 }

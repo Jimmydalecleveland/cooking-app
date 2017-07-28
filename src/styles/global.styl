@@ -33,10 +33,6 @@ button,
   cursor: pointer
   transition: background 0.3s
 
-  &:hover
-    background-color: #ff951e
-    background-position: -100% 0
-
 .app-wrapper
   position: relative
   overflow-x: hidden
@@ -45,3 +41,18 @@ button,
 .content-wrapper
   width: 90%
   margin: 0 auto
+
+
+.counter-enter
+  transition: all 2s
+  transform: translateX(-20%)
+
+.counter-enter-active
+  transform: translateX(0)
+
+.counter-leave
+  transition: all .5s
+  transform: translateX(0)
+
+.counter-leave-active
+  transform: translateX(100%)

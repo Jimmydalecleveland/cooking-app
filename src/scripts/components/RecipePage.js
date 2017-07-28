@@ -12,8 +12,11 @@ export class RecipePage extends Component {
   
   render() {
     
-    const { title, instructions, ingredients } = this.props.recipes[this.props.match.params.recipeId]
-    console.log(this.props.match.params.recipeId)
+    const {
+      title,
+      instructions,
+      ingredients
+    } = this.props.recipes[this.props.match.params.recipeId]
 
     return (
       <div className="recipe-page">
@@ -21,7 +24,6 @@ export class RecipePage extends Component {
 
         <div className="content-wrapper">
           { /* <span className="back-button" onClick={ () => this.handleClick() } >&larr;</span> */ }
-          <h3>{ title }</h3>
           <p>{ instructions }</p>
           { 
             ingredients &&

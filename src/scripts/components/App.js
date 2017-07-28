@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
+import CSSTransitionGroup from 'react-addons-css-transition-group'
 import { RecipePage } from './RecipePage'
 import { Category } from './Category'
 import sampleRecipes from '../../../sample-recipes'
@@ -22,10 +23,6 @@ export class App extends Component {
     this.setState({ activeRecipe }, routerPush)
   }
 
-  closeRecipe() {
-    document.querySelector('.recipe-page').classList.remove('active')
-  }
-
   craftTime(recipe) {
     const { prepTime, cookTime } = recipe
 
@@ -41,17 +38,36 @@ export class App extends Component {
 
     return (
       <div className="app-wrapper">
-      
-        <Switch>
-          <Route
-            exact path="/"
-            render={ () => <Category recipes={ recipes } openRecipe={ this.openRecipe } /> }
-          />
-          <Route
-            path="/recipe/:recipeId"
-            render={ (props) => <RecipePage recipes={ this.state.recipes } { ...props } /> }
-          />
-        </Switch>
+
+        <Route render={ ({ location }) => (
+          <div>
+            <CSSTransitionGroup
+              transitionName="category"
+              transitionEnterTimeout={1000}
+              transitionLeaveTimeout={200}
+            >
+              <Route
+                location={location}
+                key={location.key}
+                exact path="/"
+                render={ () => <Category recipes={ recipes } openRecipe={ this.openRecipe } /> }
+              />
+            </CSSTransitionGroup>
+
+            <CSSTransitionGroup
+              transitionName="recipe"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={200}
+            >
+              <Route
+                location={ location }
+                key={ location.key }
+                path="/recipe/:recipeId"
+                render={(props) => <RecipePage recipes={ this.state.recipes } { ...props } /> }
+              />
+            </CSSTransitionGroup>
+          </div>
+        )} />
 
       </div>
     )
