@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Nav } from './Nav'
 
 export class RecipePage extends Component {
   constructor(props) {
@@ -10,14 +11,17 @@ export class RecipePage extends Component {
   }
   
   render() {
-    const { title, instructions, prepTime, cookTime, craftTime, ingredients } = this.props
+    
+    const { title, instructions, ingredients } = this.props.recipes[this.props.match.params.recipeId]
+    console.log(this.props.match.params.recipeId)
 
     return (
       <div className="recipe-page">
+        <Nav title={ title } />
+
         <div className="content-wrapper">
-          <span className="back-button" onClick={ () => this.handleClick() } >&larr;</span>
+          { /* <span className="back-button" onClick={ () => this.handleClick() } >&larr;</span> */ }
           <h3>{ title }</h3>
-          <h4>{ craftTime }</h4>
           <p>{ instructions }</p>
           { 
             ingredients &&
@@ -29,4 +33,8 @@ export class RecipePage extends Component {
       </div>
     )
   }
+}
+
+RecipePage.propTypes = {
+  recipes: React.PropTypes.object.isRequired,
 }
