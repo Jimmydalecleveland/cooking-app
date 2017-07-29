@@ -1,6 +1,6 @@
 module.exports = {
   recipe1: {
-    title: "Chicken Stew",
+    title: 'Chicken Stew',
     prepTime: 35,
     cookTime: 120,
     instructions: "Boil'em, Mash'em, Stick'em in a stew. There isn't much more to it.",
@@ -8,25 +8,25 @@ module.exports = {
     steps: {
       step1: {
         ingredients: ['Milk'],
-        instructions: "Heat milk in a saucepan until it simmers"
+        instructions: 'Heat milk in a saucepan until it simmers',
       },
       step2: {
         ingredients: ['Chicken'],
-        instructions: "Place chicken in saucepan with milk. Head chicken until all milk has boiled up"
+        instructions: 'Place chicken in saucepan with milk. Head chicken until all milk has boiled up',
       },
       step3: {
         ingredients: ['Mews', 'Eggs'],
-        instructions: "Beat Mews and Eggs together until the mews are too loud to bare"
-      }
-    }
+        instructions: 'Beat Mews and Eggs together until the mews are too loud to bare',
+      },
+    },
   },
-  
+
   recipe2: {
     id: 2,
-    title: "Mew kabobs",
+    title: 'Mew kabobs',
     prepTime: 47,
     cookTime: 25,
-    instructions: "Put those mews on some sticks and sizzle their timbers",
-    ingredients: ['Mews', 'Peppeps', 'Salt', 'Pepper']
-  }
-}
+    instructions: 'Put those mews on some sticks and sizzle their timbers',
+    ingredients: ['Mews', 'Peppeps', 'Salt', 'Pepper'],
+  },
+};
