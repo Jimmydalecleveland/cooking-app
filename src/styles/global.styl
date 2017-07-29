@@ -12,23 +12,30 @@ body
   margin: 0
   font-family: 'Quicksand', sans-serif
 
-// h1,
-// h2,
-// h3 {
-//   font-family: 'Libre Baskerville', serif
-// }
+h1,
+h2,
+h3,
+h4,
+h5
+  font-weight: 500
+  margin: 0.2em 0 0.8em
+
+p
+  margin: 0.2em 0 0.5em
 
 button,
 .button
-  background-color: #FBDA61
+  margin: 0.5rem 0 1rem
+  padding: 0.65em 1.5em
+  background-color: darkorange
   background-image: primary-gradient
-  background-size: 200% 100%
   color: #fff
-  font-weight: 500
-  font-size: 18px
-  border-radius: 6px
+  text-shadow: 1px 1px 3px darkerorange
+  box-shadow: inset 0 -2px 3px darkorange
   border: none
-  padding: 0.4em 1.2em 0.5em
+  font-weight: 500
+  font-size: 16px
+  border-radius: 6px
   line-height: 1
   cursor: pointer
   transition: background 0.3s
@@ -41,18 +48,3 @@ button,
 .content-wrapper
   width: 90%
   margin: 0 auto
-
-
-.counter-enter
-  transition: all 2s
-  transform: translateX(-20%)
-
-.counter-enter-active
-  transform: translateX(0)
-
-.counter-leave
-  transition: all .5s
-  transform: translateX(0)
-
-.counter-leave-active
-  transform: translateX(100%)

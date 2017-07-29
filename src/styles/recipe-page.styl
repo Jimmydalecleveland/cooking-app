@@ -1,12 +1,7 @@
 .recipe-page
   padding: 0 0 1rem 0
   background-color: #fff
-  color: #4f386f
-  transition: transform 0.4s
-  // transform: translateX(100%)
-
-  &.active
-    // transform: translateX(0)
+  color: graypurple
 
   h3
     text-align: center
@@ -21,8 +16,31 @@
     position: absolute
     left: 1rem
     top: 0.5rem
-    font-size: 20px
+    font-size: 22px
     cursor: pointer
+    color: #fff
 
-  &__ingredient
+  .instructions
+    font-size: 15px
+
+  .ingredient
     display: block
+    padding: 0.5rem 0.4rem
+    border-bottom: solid 1px lighten(graypurple, 80%)
+
+  &__steps
+    padding: 1rem 0
+
+.step
+  padding: 0.8rem 0.4rem
+  // border-bottom: solid 1px lighten(graypurple, 80%)
+  
+  &__ingredients
+    display: block
+    margin-bottom: 0.3em
+    font-weight: 600
+    font-size: 15px
+
+  &__instructions
+    display: block
+    font-size: 14px

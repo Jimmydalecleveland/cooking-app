@@ -6,7 +6,8 @@ export class Category extends Component {
     const { recipes, openRecipe } = this.props
 
     return (
-      <div className="category">
+      <div className="category-page">
+        <h1>Breakfast Recipes</h1>
         {
           Object.keys(recipes)
             .map( recipe => {

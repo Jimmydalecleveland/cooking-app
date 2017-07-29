@@ -13,12 +13,10 @@ export class RecipeCard extends Component {
     
     return (
       <div className="recipe-card">
+        <div className="recipe-card__img-box"></div>
         <h3>{ title }</h3>
-        <ul>
-        {
-          ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
-        }
-        </ul>
+        <p className="prep-time">Prep time: {prepTime} minutes</p>
+        <p className="cook-time">Cook time: {cookTime} minutes</p>
         <button className="button" onClick={ () => this.props.openRecipe(index) } >View Recipe</button>
       </div>
     )

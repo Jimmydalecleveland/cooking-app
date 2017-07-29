@@ -12,25 +12,20 @@ export class App extends Component {
     this.openRecipe = this.openRecipe.bind(this)
 
     this.state = {
-      recipes: sampleRecipes,
+      recipes: {},
       activeRecipe: {}
     }
   }
 
+  componentWillMount() {
+    this.setState({ recipes: sampleRecipes })
+  }
+
+  // Use context to push a recipe route
   openRecipe(key) {
     const activeRecipe = this.state.recipes[key]
     const routerPush = this.context.router.history.push(`/recipe/${key}`)
     this.setState({ activeRecipe }, routerPush)
-  }
-
-  craftTime(recipe) {
-    const { prepTime, cookTime } = recipe
-
-    const hours = Math.floor( (prepTime + cookTime) / 60 )
-    const minutesLeft = (prepTime + cookTime) % 60
-    const message = `${hours} hours ${minutesLeft} minutes`
-
-    return message
   }
   
   render() {
@@ -43,9 +38,8 @@ export class App extends Component {
           <div>
             <CSSTransitionGroup
               transitionName="category"
-              transitionEnterTimeout={1000}
-              transitionLeaveTimeout={200}
-            >
+              transitionEnterTimeout={800}
+              transitionLeaveTimeout={250} >
               <Route
                 location={location}
                 key={location.key}
@@ -57,13 +51,12 @@ export class App extends Component {
             <CSSTransitionGroup
               transitionName="recipe"
               transitionEnterTimeout={500}
-              transitionLeaveTimeout={200}
-            >
+              transitionLeaveTimeout={300} >
               <Route
                 location={ location }
                 key={ location.key }
                 path="/recipe/:recipeId"
-                render={(props) => <RecipePage recipes={ this.state.recipes } { ...props } /> }
+                render={(props) => <RecipePage recipes={ this.state.recipes } params={ props.match.params } back={ props.history.goBack } /> }
               />
             </CSSTransitionGroup>
           </div>

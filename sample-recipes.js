@@ -3,8 +3,22 @@ module.exports = {
     title: "Chicken Stew",
     prepTime: 35,
     cookTime: 120,
-    instructions: "Boil'em, Mash'em, Stick'em in a stew.",
-    ingredients: ['Milk', 'Chicken', 'Eggs', 'Mews']
+    instructions: "Boil'em, Mash'em, Stick'em in a stew. There isn't much more to it.",
+    ingredients: ['Milk', 'Chicken', 'Eggs', 'Mews'],
+    steps: {
+      step1: {
+        ingredients: ['Milk'],
+        instructions: "Heat milk in a saucepan until it simmers"
+      },
+      step2: {
+        ingredients: ['Chicken'],
+        instructions: "Place chicken in saucepan with milk. Head chicken until all milk has boiled up"
+      },
+      step3: {
+        ingredients: ['Mews', 'Eggs'],
+        instructions: "Beat Mews and Eggs together until the mews are too loud to bare"
+      }
+    }
   },
   
   recipe2: {

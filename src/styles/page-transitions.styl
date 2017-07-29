@@ -1,38 +1,37 @@
 .recipe-page,
-.category
+.category-page
   position: absolute
   left: 0
   top: 0
   width: 100%
   min-height: 100%
 
-
 .recipe-enter
-  transition: translate 0.5s cubic-bezier(0.860, 0.000, 0.070, 1.000)
+  transition: all 0.5s cubic-bezier(1,.02,.42,.32)
   transform: translateX(100%)
 
-.recipe-enter-active
-  transform: translateX(0)
+  &.recipe-enter-active
+    transform: translateX(0)
 
 .recipe-leave
-  transition: translate 0.2s cubic-bezier(0.860, 0.000, 0.070, 1.000)
+  transition: all 0.3s cubic-bezier(1,.02,.42,.32)
   transform: translateX(0)
 
-.recipe-leave-active
-  transform: translateX(100%)
+  &.recipe-leave-active
+    transform: translateX(100%)
 
 
 .category-enter
-  transition: opacity 1s
+  transition: opacity 0.8s
   transition-delay: 0.2s
   opacity: 0
 
-.category-enter-active
-  opacity: 1
+  &.category-enter-active
+    opacity: 1
 
 .category-leave
-  transition: opacity 0.2s
+  transition: opacity 0.25s
   opacity: 1
 
-.category-leave-active
-  opacity: 0
+  &.category-leave-active
+    opacity: 0
