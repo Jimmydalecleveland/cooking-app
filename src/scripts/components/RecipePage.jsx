@@ -40,14 +40,14 @@ class RecipePage extends Component {
           <span className="back-button" role="presentation" onClick={() => this.props.back()} >&larr;</span>
           <div className="nav__sub">
             <button
-              className={this.state.menu === 'ingredients' ? 'active' : ''}
+              className={this.state.menu === 'ingredients' ? 'ingredients-button active' : 'ingredient-button'}
               onClick={this.ingredientsMenu}
             >
               Ingredients
             </button>
 
             <button
-              className={this.state.menu === 'steps' ? 'active' : ''}
+              className={this.state.menu === 'steps' ? 'steps-button active' : 'step-button'}
               onClick={this.stepsMenu}
             >
               Steps

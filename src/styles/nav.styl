@@ -25,12 +25,15 @@
 
   &__sub
     display: flex
+    position: relative    
     justify-content: center
     padding: 1.5rem 0 0
 
+    & .ingredients-button.active ~ button:last-child::before
+      left: 25%
+
     button
       flex: 1
-      position: relative
       padding-bottom: 1rem
       background: transparent
       outline: none
@@ -40,23 +43,20 @@
       font-size: 5vw
       transition: color 0.2s
 
-      &::before
-        visibility: hidden
-        bottom: 0;
-        left: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-color: rgba(255, 255, 255, 0);
-        border-bottom-color: #fff;
-        border-width: 10px;
-        margin-left: -10px;
+      &:last-child::before
+        bottom: 0
+        left: 75%
+        border: solid transparent
+        content: " "
+        height: 0
+        width: 0
+        position: absolute
+        pointer-events: none
+        border-color: rgba(255, 255, 255, 0)
+        border-bottom-color: #fff
+        border-width: 10px
+        margin-left: -10px
+        transition: all 0.4s cubic-bezier(1,.02,.42,.32)
 
       &.active
         color: #fff
-
-        &::before
-          visibility: visible
