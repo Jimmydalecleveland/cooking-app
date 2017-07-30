@@ -57,13 +57,13 @@ class RecipePage extends Component {
 
         <div className="content-wrapper">
           <div className="recipe-page-content">
-            {
-              this.state.menu === 'ingredients' ?
-                <CSSTransitionGroup
-                  transitionName="ingredients-tab"
-                  transitionEnterTimeout={10000}
-                  transitionLeaveTimeout={10000}
-                >
+            <CSSTransitionGroup
+              transitionName="recipe-tab"
+              transitionEnterTimeout={800}
+              transitionLeaveTimeout={400}
+            >
+              {
+                this.state.menu === 'ingredients' ?
                   <div className="recipe-page__ingredients" key="ingredients-tab">
                     <p className="instructions">{ instructions }</p>
                     {
@@ -73,15 +73,9 @@ class RecipePage extends Component {
                       )
                     }
                   </div>
-                </CSSTransitionGroup>
 
-                :
+                  :
 
-                <CSSTransitionGroup
-                  transitionName="steps-tab"
-                  transitionEnterTimeout={10000}
-                  transitionLeaveTimeout={10000}
-                >
                   <div className="recipe-page__steps" key="steps-tab">{
                     stepsExist &&
                     Object.keys(steps)
@@ -98,8 +92,8 @@ class RecipePage extends Component {
                       )
                   }
                   </div>
-                </CSSTransitionGroup>
-            }
+              }
+            </CSSTransitionGroup>
           </div>
         </div>
       </div>

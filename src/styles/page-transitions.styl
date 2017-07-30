@@ -47,31 +47,32 @@
   width: 100%
 
 
-.ingredients-tab-enter
-  transition: all 5s
-  transform: translateX(-100%)
+.recipe-tab-enter
+  transition: all 0.5s ease
+  transform: translateX(-110%)
+  transition-delay: 0.3s  
 
-  &.ingredients-tab-enter-active
+  &.recipe-tab-enter-active
     transform: translateX(0)
 
-.ingredients-tab-leave
-  transition: all 5s
+.recipe-tab-leave
+  transition: all 0.4s cubic-bezier(1,.02,.42,.32)
   transform: translateX(0)
 
-  &.ingredients-tab-leave-active
-    transform: translateX(-100%)
+  &.recipe-tab-leave-active
+    transform: translateX(100%)
 
 
-.steps-tab-enter
-  transition: all 5s
-  transform: translateX(100%)
+// .steps-tab-enter
+//   transition: all 5s
+//   transform: translateX(100%)
 
-  &.steps-tab-enter-active
-    transform: translateX(0)
+//   &.steps-tab-enter-active
+//     transform: translateX(0)
 
-.steps-tab-leave
-  transition: all 5s
-  transform: translateX(0)
+// .steps-tab-leave
+//   transition: all 5s
+//   transform: translateX(0)
 
-  &.steps-tab-leave-active
-    transform: translateX(-100%)
+//   &.steps-tab-leave-active
+//     transform: translateX(-100%)
