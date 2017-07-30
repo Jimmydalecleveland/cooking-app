@@ -40,14 +40,14 @@ class RecipePage extends Component {
           <span className="back-button" role="presentation" onClick={() => this.props.back()} >&larr;</span>
           <div className="nav__sub">
             <button
-              className={this.state.menu === 'ingredients' ? 'ingredients-button active' : 'ingredient-button'}
+              className={this.state.menu === 'ingredients' ? 'active' : 'ingredient-button'}
               onClick={this.ingredientsMenu}
             >
               Ingredients
             </button>
 
             <button
-              className={this.state.menu === 'steps' ? 'steps-button active' : 'step-button'}
+              className={this.state.menu === 'steps' ? 'active' : 'step-button'}
               onClick={this.stepsMenu}
             >
               Steps
@@ -64,7 +64,6 @@ class RecipePage extends Component {
             >
               {this.state.menu === 'ingredients' &&
                 <div className="recipe-page__ingredients" key="ingredients-tab">
-                  <p className="instructions">{instructions}</p>
                   {
                     ingredients &&
                     ingredients.map(ingredient =>
@@ -81,19 +80,21 @@ class RecipePage extends Component {
               transitionLeaveTimeout={400}
             >
               {this.state.menu === 'steps' && stepsExist &&
-                <div className="recipe-page__steps" key="steps-tab">{
-                  Object.keys(steps).map(step =>
-                    (
-                      <div key={step} className="step">
-                        <span className="step__ingredients">{
-                          steps[step].ingredients
-                            .map(ingredient => <span key={ingredient}>{ingredient}</span>)
-                        }</span>
-                        <span className="step__instructions">{steps[step].instructions}</span>
-                      </div>
-                    ),
-                  )
-                }
+                <div className="recipe-page__steps" key="steps-tab">
+                  <p className="instructions">{instructions}</p>
+                  {
+                    Object.keys(steps).map(step =>
+                      (
+                        <div key={step} className="step">
+                          <span className="step__ingredients">{
+                            steps[step].ingredients
+                              .map(ingredient => <span key={ingredient}>{ingredient}</span>)
+                          }</span>
+                          <span className="step__instructions">{steps[step].instructions}</span>
+                        </div>
+                      ),
+                    )
+                  }
                 </div>
               }
             </CSSTransitionGroup>
