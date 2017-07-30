@@ -35,3 +35,43 @@
 
   &.category-leave-active
     opacity: 0
+
+
+// RECIPE PAGE TAB TRANSITIONS
+
+.recipe-page__steps,
+.recipe-page__ingredients
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+
+
+.ingredients-tab-enter
+  transition: all 5s
+  transform: translateX(-100%)
+
+  &.ingredients-tab-enter-active
+    transform: translateX(0)
+
+.ingredients-tab-leave
+  transition: all 5s
+  transform: translateX(0)
+
+  &.ingredients-tab-leave-active
+    transform: translateX(-100%)
+
+
+.steps-tab-enter
+  transition: all 5s
+  transform: translateX(100%)
+
+  &.steps-tab-enter-active
+    transform: translateX(0)
+
+.steps-tab-leave
+  transition: all 5s
+  transform: translateX(0)
+
+  &.steps-tab-leave-active
+    transform: translateX(-100%)
