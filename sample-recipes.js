@@ -4,7 +4,24 @@ module.exports = {
     prepTime: 35,
     cookTime: 120,
     instructions: "Boil'em, Mash'em, Stick'em in a stew. There isn't much more to it.",
-    ingredients: ['Milk', 'Chicken', 'Eggs', 'Mews'],
+    ingredients: {
+      item1: {
+        ingredient: 'Milk',
+        amount: '1 cup',
+      },
+      item2: {
+        ingredient: 'Chicken',
+        amount: '1 pound',
+      },
+      item3: {
+        ingredient: 'Eggs',
+        amount: '4',
+      },
+      item4: {
+        ingredient: 'Mews',
+        amount: '12',
+      },
+    },
     steps: {
       step1: {
         ingredients: ['Milk'],

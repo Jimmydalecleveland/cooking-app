@@ -65,9 +65,13 @@ class RecipePage extends Component {
               {this.state.menu === 'ingredients' &&
                 <div className="recipe-page__ingredients" key="ingredients-tab">
                   {
-                    ingredients &&
-                    ingredients.map(ingredient =>
-                      <span key={ingredient} className="ingredient">{ingredient}</span>,
+                    Object.keys(ingredients).map(index =>
+                      (
+                        <div key={index} className="ingredient">
+                          <span className="ingredient__item">{ingredients[index].ingredient}</span>
+                          <span className="ingredient__amount">{ingredients[index].amount}</span>
+                        </div>
+                      ),
                     )
                   }
                 </div>
@@ -83,14 +87,14 @@ class RecipePage extends Component {
                 <div className="recipe-page__steps" key="steps-tab">
                   <p className="instructions">{instructions}</p>
                   {
-                    Object.keys(steps).map(step =>
+                    Object.keys(steps).map(index =>
                       (
-                        <div key={step} className="step">
+                        <div key={index} className="step">
                           <span className="step__ingredients">{
-                            steps[step].ingredients
+                            steps[index].ingredients
                               .map(ingredient => <span key={ingredient}>{ingredient}</span>)
                           }</span>
-                          <span className="step__instructions">{steps[step].instructions}</span>
+                          <span className="step__instructions">{steps[index].instructions}</span>
                         </div>
                       ),
                     )
