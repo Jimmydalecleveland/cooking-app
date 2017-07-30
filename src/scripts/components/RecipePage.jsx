@@ -58,40 +58,43 @@ class RecipePage extends Component {
         <div className="content-wrapper">
           <div className="recipe-page-content">
             <CSSTransitionGroup
-              transitionName="recipe-tab"
+              transitionName="ingredients-tab"
               transitionEnterTimeout={800}
               transitionLeaveTimeout={400}
             >
-              {
-                this.state.menu === 'ingredients' ?
-                  <div className="recipe-page__ingredients" key="ingredients-tab">
-                    <p className="instructions">{ instructions }</p>
-                    {
-                      ingredients &&
-                      ingredients.map(ingredient =>
-                        <span key={ingredient} className="ingredient">{ ingredient }</span>,
-                      )
-                    }
-                  </div>
-
-                  :
-
-                  <div className="recipe-page__steps" key="steps-tab">{
-                    stepsExist &&
-                    Object.keys(steps)
-                      .map(step =>
-                        (
-                          <div key={step} className="step">
-                            <span className="step__ingredients">{
-                              steps[step].ingredients
-                                .map(ingredient => <span key={ingredient}>{ingredient}</span>)
-                            }</span>
-                            <span className="step__instructions">{steps[step].instructions}</span>
-                          </div>
-                        ),
-                      )
+              {this.state.menu === 'ingredients' &&
+                <div className="recipe-page__ingredients" key="ingredients-tab">
+                  <p className="instructions">{instructions}</p>
+                  {
+                    ingredients &&
+                    ingredients.map(ingredient =>
+                      <span key={ingredient} className="ingredient">{ingredient}</span>,
+                    )
                   }
-                  </div>
+                </div>
+              }
+            </CSSTransitionGroup>
+
+            <CSSTransitionGroup
+              transitionName="steps-tab"
+              transitionEnterTimeout={800}
+              transitionLeaveTimeout={400}
+            >
+              {this.state.menu === 'steps' && stepsExist &&
+                <div className="recipe-page__steps" key="steps-tab">{
+                  Object.keys(steps).map(step =>
+                    (
+                      <div key={step} className="step">
+                        <span className="step__ingredients">{
+                          steps[step].ingredients
+                            .map(ingredient => <span key={ingredient}>{ingredient}</span>)
+                        }</span>
+                        <span className="step__instructions">{steps[step].instructions}</span>
+                      </div>
+                    ),
+                  )
+                }
+                </div>
               }
             </CSSTransitionGroup>
           </div>

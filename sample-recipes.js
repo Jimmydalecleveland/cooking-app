@@ -16,7 +16,7 @@ module.exports = {
       },
       step3: {
         ingredients: ['Mews', 'Eggs'],
-        instructions: 'Beat Mews and Eggs together until the mews are too loud to bare',
+        instructions: 'Beat Mews and Eggs together until the mews are too loud to bear',
       },
     },
   },
