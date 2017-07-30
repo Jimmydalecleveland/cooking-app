@@ -6,6 +6,7 @@
   "rules": {
     "linebreak-style": [ "error", "windows" ],
     "react/forbid-prop-types": 0,
+    "no-return-assign": 0,
   },
   "extends": [
     "airbnb"

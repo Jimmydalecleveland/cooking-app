@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
+// import Nav from './Nav';
 
 class RecipePage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      menu: 'ingredients',
-    };
+    this.state = { menu: '' };
+
+    this.ingredientsMenu = this.ingredientsMenu.bind(this);
+    this.stepsMenu = this.stepsMenu.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({ menu: 'ingredients' });
+  }
+
+  ingredientsMenu() {
+    this.setState({ menu: 'ingredients' });
+  }
+
+  stepsMenu() {
+    this.setState({ menu: 'steps' });
   }
 
   render() {
@@ -22,37 +35,60 @@ class RecipePage extends Component {
 
     return (
       <div className="recipe-page">
-        <Nav title={title} />
-        <span className="back-button" role="presentation" onClick={() => this.props.back()} >&larr;</span>
+        <div className="nav">
+          <span className="logo">{title}</span>
+          <span className="back-button" role="presentation" onClick={() => this.props.back()} >&larr;</span>
+          <div className="nav__sub">
+            <button
+              className={this.state.menu === 'ingredients' ? 'active' : ''}
+              onClick={this.ingredientsMenu}
+            >
+              Ingredients
+            </button>
+
+            <button
+              className={this.state.menu === 'steps' ? 'active' : ''}
+              onClick={this.stepsMenu}
+            >
+              Steps
+            </button>
+          </div>
+        </div>
 
         <div className="content-wrapper">
 
-          <div className="recipe-page__ingredients">
-            <p className="instructions">{ instructions }</p>
-            {
-              ingredients &&
-              ingredients.map(ingredient =>
-                <span key={ingredient} className="ingredient">{ ingredient }</span>,
-              )
-            }
-          </div>
+          {
+            this.state.menu === 'ingredients' ?
+              <div className="recipe-page__ingredients">
+                <p className="instructions">{ instructions }</p>
+                {
+                  ingredients &&
+                  ingredients.map(ingredient =>
+                    <span key={ingredient} className="ingredient">{ ingredient }</span>,
+                  )
+                }
+              </div>
 
-          <div className="recipe-page__steps">{
-            stepsExist &&
-            Object.keys(steps)
-              .map(step =>
-                (
-                  <div key={step} className="step">
-                    <span className="step__ingredients">{
-                      steps[step].ingredients
-                        .map(ingredient => <span key={ingredient}>{ingredient}</span>)
-                    }</span>
-                    <span className="step__instructions">{steps[step].instructions}</span>
-                  </div>
-                ),
-              )
+              :
+
+              <div className="recipe-page__steps">{
+                stepsExist &&
+                Object.keys(steps)
+                  .map(step =>
+                    (
+                      <div key={step} className="step">
+                        <span className="step__ingredients">{
+                          steps[step].ingredients
+                            .map(ingredient => <span key={ingredient}>{ingredient}</span>)
+                        }</span>
+                        <span className="step__instructions">{steps[step].instructions}</span>
+                      </div>
+                    ),
+                  )
+              }
+              </div>
           }
-          </div>
+
         </div>
       </div>
     );
