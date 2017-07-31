@@ -39,6 +39,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "babel-plugin-transform-react-jsx-img-import": "^0.1.4",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",

@@ -3,6 +3,7 @@ import React from 'react';
 const RecipeCard = ({ index, recipe, openRecipe }) => {
   const {
     title,
+    image,
     prepTime,
     cookTime,
   } = recipe;
@@ -10,7 +11,7 @@ const RecipeCard = ({ index, recipe, openRecipe }) => {
   return (
     <div className="recipe-card">
       <div className="recipe-card__img-box">
-        <img src="http://placehold.it/150x150" alt="recipe" />
+        <img src={image} alt="recipe" />
       </div>
       <h3>{title}</h3>
       <p className="prep-time">Prep time: {prepTime} minutes</p>

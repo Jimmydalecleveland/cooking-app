@@ -68,7 +68,12 @@ class RecipePage extends Component {
                     Object.keys(ingredients).map(index =>
                       (
                         <div key={index} className="ingredient">
-                          <span className="ingredient__item">{ingredients[index].ingredient}</span>
+                          <div className="ingredient__img">
+                            <img src={ingredients[index].image} alt="" />
+                          </div>
+                          <span className="ingredient__name">
+                            {ingredients[index].ingredient}
+                          </span>
                           <span className="ingredient__amount">{ingredients[index].amount}</span>
                         </div>
                       ),
@@ -92,7 +97,7 @@ class RecipePage extends Component {
                         <div key={index} className="step">
                           <span className="step__ingredients">{
                             steps[index].ingredients
-                              .map(ingredient => <span key={ingredient}>{ingredient}</span>)
+                              .map(ingredient => <span key={ingredient}>{ingredient} </span>)
                           }</span>
                           <span className="step__instructions">{steps[index].instructions}</span>
                         </div>

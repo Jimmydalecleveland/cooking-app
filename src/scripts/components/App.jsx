@@ -39,7 +39,7 @@ class App extends Component {
             <CSSTransitionGroup
               transitionName="category"
               transitionEnterTimeout={800}
-              transitionLeaveTimeout={250}
+              transitionLeaveTimeout={500}
             >
               <Route
                 location={location}
