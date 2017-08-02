@@ -29,7 +29,7 @@ class RecipePage extends Component {
       instructions,
       ingredients,
       steps,
-    } = this.props.recipes[this.props.params.recipeId];
+    } = this.props.recipe;
 
     const stepsExist = steps != null;
 
@@ -115,8 +115,7 @@ class RecipePage extends Component {
 }
 
 RecipePage.propTypes = {
-  recipes: React.PropTypes.object.isRequired,
-  params: React.PropTypes.object.isRequired,
+  recipe: React.PropTypes.object.isRequired,
   back: React.PropTypes.func.isRequired,
 };
 

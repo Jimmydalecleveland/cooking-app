@@ -9,23 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.openRecipe = this.openRecipe.bind(this);
-
     this.state = {
       recipes: {},
-      activeRecipe: {},
     };
   }
 
   componentWillMount() {
     this.setState({ recipes: sampleRecipes });
-  }
-
-  // Use context to push a recipe route
-  openRecipe(key) {
-    const activeRecipe = this.state.recipes[key];
-    const routerPush = this.context.router.history.push(`/recipe/${key}`);
-    this.setState({ activeRecipe }, routerPush);
   }
 
   render() {
@@ -46,7 +36,7 @@ class App extends Component {
                 key={location.key}
                 exact
                 path="/"
-                render={() => <Category recipes={recipes} openRecipe={this.openRecipe} />}
+                render={() => <Category recipes={recipes} />}
               />
             </CSSTransitionGroup>
 
@@ -59,12 +49,11 @@ class App extends Component {
                 location={location}
                 key={location.key}
                 path="/recipe/:recipeId"
-                render={props =>
+                render={({ match, history }) =>
                   (
                     <RecipePage
-                      recipes={this.state.recipes}
-                      params={props.match.params}
-                      back={props.history.goBack}
+                      recipe={recipes[match.params.recipeId]}
+                      back={history.goBack}
                     />
                   )
                 }

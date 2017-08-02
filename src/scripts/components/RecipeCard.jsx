@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const RecipeCard = ({ index, recipe, openRecipe }) => {
+const RecipeCard = ({ index, recipe }) => {
   const {
     title,
     image,
@@ -16,7 +17,9 @@ const RecipeCard = ({ index, recipe, openRecipe }) => {
       <h3>{title}</h3>
       <p className="prep-time">Prep time: {prepTime} minutes</p>
       <p className="cook-time">Cook time: {cookTime} minutes</p>
-      <button className="button" onClick={() => openRecipe(index)} >View Recipe</button>
+      <Link to={`/recipe/${index}`}>
+        <button className="button">View Recipe</button>
+      </Link>
     </div>
   );
 };
@@ -24,7 +27,6 @@ const RecipeCard = ({ index, recipe, openRecipe }) => {
 RecipeCard.propTypes = {
   recipe: React.PropTypes.object.isRequired,
   index: React.PropTypes.string.isRequired,
-  openRecipe: React.PropTypes.func.isRequired,
 };
 
 export default RecipeCard;

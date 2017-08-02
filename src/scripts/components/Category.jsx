@@ -11,7 +11,7 @@ class Category extends Component {
   }
 
   render() {
-    const { recipes, openRecipe } = this.props;
+    const { recipes } = this.props;
 
     return (
       <div className="category-page">
@@ -24,7 +24,6 @@ class Category extends Component {
                   key={recipe}
                   index={recipe}
                   recipe={recipes[recipe]}
-                  openRecipe={openRecipe}
                 />
               ),
             )
@@ -36,7 +35,6 @@ class Category extends Component {
 
 Category.propTypes = {
   recipes: React.PropTypes.object.isRequired,
-  openRecipe: React.PropTypes.func.isRequired,
 };
 
 export default Category;
